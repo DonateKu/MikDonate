@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MiniSocialBuzz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #4a90e2;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 0 15px;
+    }
+    .post {
+      background: white;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .post h3 {
+      margin-top: 0;
+    }
+    .donate-buttons {
+      margin-top: 10px;
+    }
+    .donate-buttons input {
+      width: 80px;
+      padding: 5px;
+      margin-right: 5px;
+    }
+    .donate-buttons button {
+      padding: 8px 15px;
+      margin-right: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      color: white;
+      font-weight: bold;
+    }
+    .gopay {
+      background-color: #00b14f;
+    }
+    .dana {
+      background-color: #0055ff;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    MiniSocialBuzz
+  </header>
+
+  <div class="container">
+    <div class="post">
+      <h3>Pengguna: Kak Boys</h3>
+      <p>Ini adalah postingan pertama saya di MiniSocialBuzz!</p>
+      <div class="donate-buttons">
+        <input type="number" placeholder="Nominal" id="amount1">
+        <button class="gopay" onclick="donate('GoPay', 'amount1')">Donate via GoPay</button>
+        <button class="dana" onclick="donate('Dana', 'amount1')">Donate via Dana</button>
+      </div>
+    </div>
+
+    <div class="post">
+      <h3>Pengguna: Teman</h3>
+      <p>Halo semuanya! Coba donasi ya </p>
+      <div class="donate-buttons">
+        <input type="number" placeholder="Nominal" id="amount2">
+        <button class="gopay" onclick="donate('GoPay', 'amount2')">Donate via GoPay</button>
+        <button class="dana" onclick="donate('Dana', 'amount2')">Donate via Dana</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 MiniSocialBuzz - Simulasi Donasi E-Wallet
+  </footer>
+
+  <script>
+    function donate(wallet, inputId) {
+      const amount = document.getElementById(inputId).value;
+      if(amount === '' || amount <= 0) {
+        alert('Masukkan nominal donasi yang valid!');
+        return;
+      }
+      alert(`Terima kasih! Anda akan donate Rp${amount} via ${wallet} (simulasi).`);
+      document.getElementById(inputId).value = '';
+    }
+  </script>
+</body>
+</html>
